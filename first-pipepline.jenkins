@@ -1,5 +1,5 @@
 #!groovy
-// Check debain-host properties
+// Check debian-host properties
 properties([disableConcurrentBuilds()])
 
 pipeline {
@@ -13,12 +13,12 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                sh 'ssh root@debain-host \'hostname\''
+                sh 'ssh root@debian-host \'hostname\''
             }
         }
         stage("Second step") {
             steps {
-                sh 'ssh root@debain-host \'uptime\''
+                sh 'ssh root@debian-host \'uptime\''
             }
         }
     }
