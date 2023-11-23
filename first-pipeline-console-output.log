@@ -1,0 +1,54 @@
+Started by user admin
+Obtained first-pipepline.jenkins from git https://github.com/justgithubaccount/welcome-jenkins.git
+[Pipeline] Start of Pipeline
+[Pipeline] properties
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/first-pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/first-pipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/justgithubaccount/welcome-jenkins.git # timeout=10
+Fetching upstream changes from https://github.com/justgithubaccount/welcome-jenkins.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- https://github.com/justgithubaccount/welcome-jenkins.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 2c8e34999acbdbff2b44a69f9f5b104782446db9 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 2c8e34999acbdbff2b44a69f9f5b104782446db9 # timeout=10
+Commit message: "First Pipeline (change hostname)"
+ > git rev-list --no-walk 1f48488f1c5f80a09159d913be49bb78fce6e40e # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (First step)
+[Pipeline] sh
+20:16:22  + ssh root@debian-host hostname
+20:16:22  debian-host
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Second step)
+[Pipeline] sh
+20:16:22  + ssh root@debian-host uptime
+20:16:23   17:16:09 up  3:23,  1 user,  load average: 0.00, 0.00, 0.00
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
